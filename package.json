@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "books",
   "main": "index.html",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "node-sass": "^4.14.1"
+  },
   "scripts": {
-    "test": "\"this is a test\""
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",

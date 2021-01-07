@@ -1,0 +1,19 @@
+{
+  "name": "books",
+  "version": "1.0.0",
+  "description": "books",
+  "main": "index.html",
+  "scripts": {
+    "test": "\"this is a test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbvk/books.git"
+  },
+  "author": "sbvk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbvk/books/issues"
+  },
+  "homepage": "https://github.com/sbvk/books#readme"
+}

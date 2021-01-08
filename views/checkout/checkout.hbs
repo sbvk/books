@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <!--
+    <link rel="stylesheet" href="http://localhost:3000/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:3000/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/bootstrap-social/bootstrap-social.css">
+  <script src="http://localhost:3000/jquery/dist/jquery.slim.min.js"></script>
+    <script src="http://localhost:3000/popper.js/dist/umd/popper.min.js"></script>
+    <script src="http://localhost:3000/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="https://model3ddd.herokuapp.com/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://model3ddd.herokuapp.com/css/styles.css">
+    <link rel="stylesheet" href="https://model3ddd.herokuapp.com/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://model3ddd.herokuapp.com/bootstrap-social/bootstrap-social.css">
+  <script src="https://model3ddd.herokuapp.com/jquery/dist/jquery.slim.min.js"></script>
+    <script src="https://model3ddd.herokuapp.com/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://model3ddd.herokuapp.com/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+   <h1>Checkout&nbsp;
+    <img src="https://model3ddd.herokuapp.com/check.png" style="width: 50px;"></h1>
+   <div class="row row-content">
+ 
+
+<table class="table table-striped">
+<thead>
+   <th>Name</th>
+   <th>Item</th>
+  <th>Price</th>
+   <th>Qty</th>
+   <th>Total Price</th>
+</thead> <tbody> <script>
+var i=0; var j=0; </script>
+{{#each docs}} <tr>
+   <td>{{#each this}}{{#each this.cart.items}}{{this.item.name}}{{/each}}{{/each}}</td>
+   <td><img src="data:img/fbx;base64,{{#each this}}{{#each this.cart.items}}{{this.item.img.base}}{{/each}}{{/each}}"  height="100" width="100"></td>
+
+<td>{{#each this}}{{#each this.cart.items}}{{this.price}}{{/each}}{{/each}}</td>
+<td>{{#each this}}{{this.qty}}{{/each}}</td>
+<td>
+ <!--{{#each this}}{{this.qty}}{{/each}} {{#each this}}{{#each this.cart.items}}{{this.price}}{{/each}}{{/each}} -->
+ {{#each this}}{{this.totalprice}}{{/each}}
+</tr>
+{{/each}}
+<tr>
+ <td><B>Total</B></td><td></td><td></td><td><B>{{qua}}</B></td><td><B>{{tp}}</B></td></tr>
+ </tbody>
+</table> 
+    
+
+     
+   </div>
+<form method="post" action="/icart1/place">
+<button class="btn btn-success" type="submit" style="width: 100%; display: block;">Place Order
+   <img src="https://model3ddd.herokuapp.com/pla.png" style="width: 30px;"></button></form>
+</div>
+</body> <!--
+ <script src="http://localhost:3000/jquery/dist/jquery.slim.min.js"></script>
+    <script src="http://localhost:3000/popper.js/dist/umd/popper.min.js"></script>
+    <script src="http://localhost:3000/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <script src="https://model3ddd.herokuapp.com/jquery/dist/jquery.slim.min.js"></script>
+    <script src="https://model3ddd.herokuapp.com/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://model3ddd.herokuapp.com/bootstrap/dist/js/bootstrap.min.js"></script>
+    </html>

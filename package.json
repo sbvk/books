@@ -6,8 +6,22 @@
   "dependencies": {
     "bootstrap": "^4.5.2",
     "bootstrap-social": "^5.1.1",
+    "cookie-parser": "^1.4.5",
     "font-awesome": "^4.7.0",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "connect-mongo": "^3.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.5",
+    "multer": "^1.4.2",
+    "connect-flash": "^0.1.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "lite-server": "^2.6.1",
+    "nodemon": "^2.0.4"
   },
   "scripts": {
     "start": "node server.js",

@@ -1,0 +1,161 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap-social/bootstrap-social.css">
+  <style>
+     .card {
+  
+  max-width: 3000px;
+  max-height: 380px;
+ 
+  text-align: center;
+  font-family: arial;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    opacity: 1;
+    size: 40px;
+}
+
+ </style> 
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+<div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">  
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">  <!--<img src="img/logo.png" height="30" width="41">--></a>
+    <div class="collapse navbar-collapse" id="Navbar">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html" ><img src="/home.png" style="width: 30px;"> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/base" ><img src="/books.png" style="width: 30px;">Books</a></li>
+    </ul>
+    
+    </div> <div class="col-2 col-sm-2"> 
+                <a href="/base" class="btn btn-primary">Back</a></div>
+</div>
+</nav>
+<div class="container"> 
+        <div class="row row-content">
+             <div class="col-2 col-sm-3"> &nbsp;</div><div class="col-10 col-sm-5">
+            <h1><I>My Cart<img src="cart2.png" style="width: 150px;"></I>
+            <span class="badge" style="border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    border: 2px solid coral;
+    text-align: center; color:green">
+             {{ct}}</span></h1> </B>
+            {{#if success}}
+                <div class="alert alert-primary"  role="alert">{{success}}</div>{{/if}}
+                
+                </div>
+{{#if orders}} <form method="post" id="myform" action="/icart1/checkout"></form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th>Sr.No</th>
+        <th>Name</th>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Added On</th>
+        <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody> <script type="text/javascript"> var i=1; </script>
+        {{#each orders}} 
+        
+<tr><script type="text/javascript">for( ;i<=orders.length;i++)</script>
+ <td><script type="text/javascript">  {
+    document.write(i); i++;
+     }</script></td>
+ <td>{{#each this.items}}{{this.item.name}}{{/each}}</td>
+ 
+<td><img src="data:img/fbx;base64,{{#each this.items}}{{this.item.img.base}}{{/each}}"  height="100" width="100"></td>
+ <td>{{#each this.items}}{{this.item.price}}{{/each}}</td>
+ <td>{{#each this}}{{this.date}}{{/each}}</td>
+ <td> 
+     <input type="number" name="qty[]" id="qty" form="myform" value="1" min="1"  style="width: 100px;" required />
+     </td>
+ <td><form method="post" {{#each this}}action="/icart1/reduce/{{this._id}}"{{/each}}>
+<button class="btn btn-danger" type="submit">Remove&nbsp;<i class="fa fa-trash"></i></button></form></td>
+</tr>{{/each}}
+</tbody>
+</table>
+     </div>   <div class="row row-content">
+             <div class="col-6 col-sm-6">
+                 <form method="post" action="/icart1/remove/">
+<button class="btn" type="submit" style="width: 100%; background:tomato; color:white;">Empty Cart&nbsp;
+   
+</button>
+</form>
+</div><div class="col-6 col-sm-6">
+
+<button class="btn btn-success" form="myform" type="submit" style="width: 100%;">Checkout&nbsp;
+    </button> 
+</div>
+</div>
+ </div>
+{{else}}
+<div class="container">
+<table><div class="row row-content"> 
+    <div class="col-sm-3"> </div>
+    <div class="col-12 col-sm-6"><br><br>
+<div class="card">
+  <a href="/base"><img src="cart3.png" style="width:100%">
+  <p>
+      <B><I><h3>Your Cart is empty!</h3></I></B></p><p>
+      <button href="/base">Shop Now!</button></p></a><p>Check out our exclusive models and shop now!</p>
+</div></div></div></table>
+</div>
+{{/if}}
+
+
+
+ 
+<script src="jquery/dist/jquery.slim.min.js"></script>
+    <script src="popper.js/dist/umd/popper.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+   <script src="./src/bootstrap-input-spinner.js"></script>
+<script>
+    $("input[type='number']").inputSpinner()
+  
+</script>
+    <script>
+        
+        $(document).ready(function(){
+                $("#loginid").click(function(){
+                $("#loginModal").modal('show');
+            })
+        });
+    </script> 
+    
+ 
+</body>
+</html>

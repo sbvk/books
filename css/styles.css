@@ -12,8 +12,9 @@
   
   
 .footer {
-  background:url(../foo.gif);
+ 
   margin: 0px auto;
+  height: auto;
   padding: 20px 0px; }
 
 .jumbotron {

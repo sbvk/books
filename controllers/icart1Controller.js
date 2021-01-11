@@ -117,6 +117,7 @@ router.post('/checkout', function(req,res,next){
 
 });
 router.post('/place', function(req,res,next){
+    /*
     var pid=req.user._id;var i=0;
     Cartlist1.find({id:pid},function(err,docs){
       docs.forEach(function(rep){
@@ -167,9 +168,20 @@ router.post('/place', function(req,res,next){
     
      }
 });     
-});
+}); */
+Cartlist1.deleteMany(function (err, docs) { 
+    if (err){ 
+        console.log(err) 
+    } 
+    else{ 
+        console.log("Deleted : ", docs); 
+        console.log('ordered');
+        req.session.cart=null;
+        //res.redirect('/icart1');
+    } //res.redirect('/myord');
+}); //res.redirect('/myord');
 req.flash('success','Order placed successfully!');
-res.redirect('/myord');
+res.redirect('/base');
 });
 
 
